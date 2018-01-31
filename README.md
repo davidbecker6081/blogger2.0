@@ -10,12 +10,13 @@ For my final assessment, I'll be building a simple blogging application.
 * You are allowed to use any tools that you choose to facilitate your workflow (text editor, testing framework, etc.).
 * You can reference external resources such as documentation, blog posts, etc.
 * You should commit often, and expect to explain and justify your implementation.
+* Server endpoints should be built in TDD fashion
 
 ### Overview
 
 The application follows a familiar blogging pattern -- users can create "Posts" on the site and add "Comments" about existing posts.
 
-The application should require sign up and login to add a post or comment, but will still be able to view posts when not logged in. OAuth will be implemented with Firebase OAuth. 
+The application should require sign up and login to add a post or comment, but will still be able to view posts when not logged in. OAuth will be implemented with Firebase OAuth.
 
 In order to provide a fluid user experience, several interactions will need to be performed without requiring a full page reload.
 
