@@ -9,11 +9,13 @@ const configuration = require('./knexfile')[environment];
 const db = require('knex')(configuration);
 const cors = require('express-cors');
 
-app.locals.title = 'Graffiti Graffix';
+app.locals.title = 'Blogger2.0';
+
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -25,6 +27,13 @@ app.use((req, res, next) => {
 });
 
 app.set('port', process.env.PORT || 3001);
+
+app.get('/api/v1/posts', (request, response) => {
+  db('posts')
+    .select()
+    .then(posts => response.status(200).json(posts))
+    .catch(error => response.status(500).json({ error }))
+});
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
