@@ -29,10 +29,23 @@ app.use((req, res, next) => {
 app.set('port', process.env.PORT || 3001);
 
 app.get('/api/v1/posts', (request, response) => {
-  db('posts')
+  return db('posts')
     .select()
     .then(posts => response.status(200).json(posts))
-    .catch(error => response.status(500).json({ error }))
+    .catch(error => response.status(500).json({ error }));
+});
+
+app.get('/api/v1/comments/:post_id', (request, response) => {
+  const post_id = request.params;
+
+  return db('comments')
+    .where(post_id)
+    .select()
+    .then(comments =>
+      comments.length
+        ? response.status(200).json(comments))
+        : response.status(404).json({ error: 'No comments found for this post '})
+    .catch(error => response.status(500).json({ error }));
 });
 
 app.listen(app.get('port'), () => {
