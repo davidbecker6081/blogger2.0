@@ -66,6 +66,24 @@ app.post('/api/v1/posts', (request, response) => {
     .catch(error => response.status(500).json({ error }));
 });
 
+app.post('/api/v1/comment', (request, response) => {
+  const comment = request.body;
+  const keys = ['author', 'body', 'post_id'];
+
+  for (const requiredParameter of keys) {
+    if (!comment[requiredParameter]) {
+      return response.status(422).send({
+          error: `Expected format: { 'author': <string>, 'body': <string>, 'post_id': <integer> }.  You are missing a ${requiredParameter} property.`
+      });
+    }
+  }
+
+  return db('comments')
+    .insert(comment, '*')
+    .then(comment => response.status(201).json(comment))
+    .catch(error => response.status(500).json({ error }));
+});
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
