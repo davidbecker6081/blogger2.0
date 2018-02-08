@@ -99,21 +99,8 @@ If you finish early, consider implementing one of these extensions:
 * 2: Project has sporadic use of tests and multiple levels
 * 1: Project did not really attempt to use TDD
 
-### 4. Rails Style
 
-* 4: Developer is able to craft Rails features that make smart use of Ruby, follow the principles of MVC, and push business logic down where it belongs
-* 3: Developer generally writes clean Rails features that make smart use of Ruby, with some struggles in pushing logic down the stack
-* 2: Developer struggles with some concepts of MVC and pushing logic down the stack
-* 1: Developer shows little or no understanding of how to craft Rails applications
-
-### 5. Ruby Style
-
-* 4: Developer writes code that is exceptionally clear and well-factored
-* 3: Developer solves problems with a balance between conciseness and clarity and often extracts logical components
-* 2: Developer writes effective code, but does not breakout logical components
-* 1: Developer writes code with unnecessary variables, operations, or steps which do not increase clarity
-
-### 6. Javascript Usage & Style
+### 3. Javascript Usage & Style
 
 * 4: Developer uses Javascript
 * 3: Developer uses Javascript effectively and in the right places, and demonstrates understanding
